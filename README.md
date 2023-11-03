@@ -3,22 +3,32 @@ The Ada program has two parts:
 1. A package for performing concurrent matrix multiplication.
 2. A main procedure, AssignmentMain, containing tasks for reading in matrix data, invoking the matrix multiplication, and displaying the results.
 Package for Concurrent Matrix Multiplication:
-The MatrixMult Package Specification: Defines a package called MatrixMult that exports (i.e. declares in its specification) the following:
+
+**The MatrixMult Package Specification:** Defines a package called MatrixMult that exports (i.e. declares in its specification) the following:
 •	An integer constant SIZE define to be 10. 
 •	A type that defines the type of a matrix, e.g. a two dimensional array of integers. The size of the array should be SIZExSIZE (i.e. a square matrix).
 •	A procedure MatMult(A,B,C), where A and B are input parameters of the matrix type defined, and C is an output parameter, also of the same matrix type.
-The MatrixMult Package Body: Within the body of the MatrixMult package, we will define the MatMult procedure. 
+
+**The MatrixMult Package Body:** Within the body of the MatrixMult package, we will define the MatMult procedure. 
 •	This procedure should multiply the matrices A and B and write the result to C. 
 •	Two-dimensional array of tasks, where each task computes one element of the result matrix C. 
-The AssignmentMain Procedure
+
+**The AssignmentMain Procedure**
 The procedure AssignmentMain has three matrices of the type defined in the MatrixMult package, read in the values for the first two matrices, call MatMult so that the third matrix contains the results of multiplying the first two, and then print out the third matrix which uses below 3 tasks for doing that:
-•	Reader1: This task read in SIZE2 integers from the terminal and write them into the first matrix (in row major order -- i.e. going across the rows of the matrix).
-•	Reader2: This task also read SIZE2 integers from the terminal and populate the second matrix in row major order. Reader2 doesn't start reading until Reader1 has finished.
-•	Printer: This task print the third matrix after it has been computed using MatMult. 
+•	**Reader1:** This task read in SIZE2 integers from the terminal and write them into the first matrix (in row major order -- i.e. going across the rows of the matrix).
+•	**Reader2:** This task also read SIZE2 integers from the terminal and populate the second matrix in row major order. Reader2 doesn't start reading until Reader1 has finished.
+•	**Printer:** This task print the third matrix after it has been computed using MatMult. 
 •	The call to the MatMult procedure is from the body of the AssignmentMain procedure.
-To run the program: Download all the 3 files in your local system and simply create an input file containing the 200 integers, separated by spaces. Then, when you run your program, redirect that file to the standard input by typing
+
+**To run the program:** Download all the 3 files in your local system and simply create an input file containing the 200 integers, separated by spaces. Then, when you run your program, redirect that file to the standard input by typing where the input file is called input.txt.
+
+Run below command in cygwin (which contains these 3 files and input.txt file):
+
+gnatmake assignmentmain.adb
+
 ./assignmentmain < input.txt
-where the input file is called input.txt. The attached input.txt file has 200 integers to run this program. The output of your program for this input file should be:
+ 
+ The attached input.txt file has 200 integers to run this program. The output of the given input.txt file after running the program for this input file should be:
 
     6176    7286    6406    5358    9562    5972    8671    6089    5728    9108
     4668    4819    4289    4838    5948    3677    5852    4109    5190    6052
