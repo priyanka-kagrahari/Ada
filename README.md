@@ -1,5 +1,4 @@
-# src
-Ada Programming : 
+# Ada Programming : 
 The Ada program has two parts:
 1. A package for performing concurrent matrix multiplication.
 2. A main procedure, AssignmentMain, containing tasks for reading in matrix data, invoking the matrix multiplication, and displaying the results.
